@@ -1,0 +1,37 @@
+<!doctype html>
+<title>Basic Emulator</title>
+
+<script src="libv86.js"></script>
+<script>
+"use strict";
+
+window.onload = function() {
+    const emulator = new V86({
+        wasm_path: "../build/v86.wasm",
+        memory_size: 128 * 1024 * 1024,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: document.getElementById("screen_container"),
+        bios: {
+            url: "seabios.bin",
+        },
+        vga_bios: {
+            url: "vgabios.bin",
+        },
+        hda: {
+           "url": "Windows98.img",
+		       "async": true,
+		       "size": 314572800,
+		       "step": 10485760, // just add this to use without server-side
+		       use_parts: true
+        },
+
+        autostart: true,
+    });
+};
+</script>
+
+<!-- Emulator Screen Container -->
+<div id="screen_container">
+    <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div>
+    <canvas style="display: none"></canvas>
+</div>
