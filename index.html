@@ -7,7 +7,7 @@
 
 window.onload = function() {
     const emulator = new V86({
-        wasm_path: "build/v86.wasm",
+        wasm_path: "../build/v86.wasm",
         memory_size: 128 * 1024 * 1024,
         vga_memory_size: 2 * 1024 * 1024,
         screen_container: document.getElementById("screen_container"),
@@ -17,13 +17,13 @@ window.onload = function() {
         vga_bios: {
             url: "vgabios.bin",
         },
-        hda: {
-           "url": "Windows98.img",
-		       "async": true,
-		       "size": 314572800,
-		       "step": 10485760, // just add this to use without server-side
-		       use_parts: true
-        },
+	hda: {
+	    url: "Windows98.img",
+	    async: true,
+	    size: 300 * 1024 * 1024, // 30 * 10 MB
+	    step: 10 * 1024 * 1024, // 10 MB
+	    use_parts: true
+        }
 
         autostart: true,
     });
