@@ -7,7 +7,7 @@
 
 window.onload = function() {
     const emulator = new V86({
-        wasm_path: "../build/v86.wasm",
+        wasm_path: "build/v86.wasm",
         memory_size: 128 * 1024 * 1024,
         vga_memory_size: 2 * 1024 * 1024,
         screen_container: document.getElementById("screen_container"),
@@ -23,7 +23,7 @@ window.onload = function() {
 	    size: 300 * 1024 * 1024, // 30 * 10 MB
 	    step: 10 * 1024 * 1024, // 10 MB
 	    use_parts: true
-        }
+        },
 
         autostart: true,
     });
