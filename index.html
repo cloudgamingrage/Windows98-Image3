@@ -21,7 +21,8 @@ window.onload = function() {
 	    url: "Windows98.img",
 	    async: true,
 	    size: 300 * 1024 * 1024, // 30 * 10 MB
-	    step: 10 * 1024 * 1024, // 10 MB
+	    fixed_chunk_size: 10 * 1024 * 1024, // 10 MB
+	    partfile_alt_format: true,
 	    use_parts: true
         },
 
